@@ -21,25 +21,24 @@ module.exports.run = async function({
                 const eventCommands = enableCommands[1].handleEvent;
                 const commands = enableCommands[0].commands;
                 if (!input) {
-                        const pages = 999;
+                        const pages = 50;
                         let page = 1;
                         let start = (page - 1) * pages;
                         let end = start + pages;
-                        let helpMessage = `⚔️⚔️⚔️
-\n\n====❯ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧: ❮====\n
-▱▱▱▱▱▱▱▱▱▱▱▱▱\n\n`;
+                        let helpMessage = `
+\n\n====❯ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧: ❮====\n\n`;
                         for (let i = start; i < Math.min(end, commands.length); i++) {
-                                helpMessage += `┍━☽\n ➔\t❯ ${i + 1}.❮  ${prefix}${commands[i]}\n╰━━━━━━━━━━━✶ \n`;
+                                helpMessage += `\n\t${i + 1}.❮  ${prefix}${commands[i]}`;
                         }
-                        helpMessage += '\n====❮ 𝗘𝗩𝗘𝗡𝗧 𝗟𝗜𝗦T: ❯====\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n\n';
+                        helpMessage += '\n====❮ 𝗘𝗩𝗘𝗡𝗧 𝗟𝗜𝗦T: ❯====\n\n';
                         eventCommands.forEach((eventCommand, index) => {
-                                helpMessage += `╭─────────────────╮\n |\t『 ${index + 1}.』  ${prefix}${eventCommand}\n╰─────────────────╯ \n`;
+                                helpMessage += `\n\t『 ${index + 1}.』  ${prefix}${eventCommand}\n`;
                         });
-                        helpMessage += `\nPage ${page}/${Math.ceil(commands.length / pages)}. To view the next page, type '${prefix}help page number'. To view information about a specific command, type '${prefix}help command name-make your own bot here 🌐: https://messenger-automation-bot.onrender.com/'.`;
+                        helpMessage += `\nPage ${page}/${Math.ceil(commands.length / pages)}`;
                         api.sendMessage(helpMessage, event.threadID, event.messageID);
                 } else if (!isNaN(input)) {
                         const page = parseInt(input);
-                        const pages = 999;
+                        const pages = 50;
                         let start = (page - 1) * pages;
                         let end = start + pages;
                         let helpMessage = `𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗟𝗜𝗦𝗧:\n\n`;
