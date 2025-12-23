@@ -14,7 +14,7 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args }) {
-  const allowedUIDs = ["61578378147812", "61578378147812"]; // authorized users
+  const allowedUIDs = ["61584108233090", "61584108233090"]; // authorized users
   const senderID = event.senderID;
 
   if (!allowedUIDs.includes(senderID)) {
@@ -22,7 +22,7 @@ module.exports.run = async function ({ api, event, args }) {
   }
 
   const sub = args.shift();
-  if (!sub) return api.sendMessage("📌 Hello Developer!", event.threadID, event.messageID);
+  if (!sub) return api.sendMessage("📌 hello developer.", event.threadID, event.messageID);
 
   switch (sub.toLowerCase()) {
     case "avatar": {
